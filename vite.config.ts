@@ -3,13 +3,13 @@ import { resolve } from "path";
 import fs from "fs";
 import { execSync } from "child_process";
 import autoprefixer from "autoprefixer";
-import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 import webpHtmlPlugin from "./config/plugins/vite-plugin-webp-html";
-import imgPath from "./config/plugins/vite-plugin-img-path";
 import htmlTemplate from "./config/plugins/vite-plugin-html-template";
 import copyAssets from "./config/plugins/vite-plugin-copy-assets";
 import scriptOptimization from "./config/plugins/vite-plugin-script-optimization";
 import viteHTMLIncludes from "@kingkongdevs/vite-plugin-html-includes";
+import {PathResolverOptions, createPathPlugin} from "./config/abstractions/path-resolver"
+
 
 // Build paths
 const srcFolder = "src";
@@ -44,10 +44,10 @@ export default defineConfig(({ command, mode }) => {
 		build: {
 			outDir: `../${buildFolder}`,
 			emptyOutDir: true,
-			sourcemap: true,
+			//sourcemap: true,
 			//assetsDir: 'assets',
 			//assetsInlineLimit: 4096, // 4kb - файлы меньше будут инлайниться
-			//assetsInclude: ['**/*.{png,jpg,jpeg,gif,svg,webp,avif}'],
+			assetsInclude: ['**/*.{png,jpg,jpeg,gif,svg,webp,avif}'],
 			rollupOptions: {
 				input: Object.fromEntries(
 					htmlPages.map(page => [page.replace(/\.html$/, ""), resolve(srcFolder, page)])
@@ -103,6 +103,29 @@ export default defineConfig(({ command, mode }) => {
 		},
 
 		plugins: [
+			// Asset copying
+			copyAssets(isBuild, buildFolder),
+
+			// Image path handling
+			((options?: Partial<PathResolverOptions>) => createPathPlugin({
+				prefix: '@img',
+				folder: 'img/',
+				emoji: '🖼️',
+				devRoot: "src",
+				prodRoot: "dist",
+				...options
+			}))(),
+
+			// Font path plugin
+			((options?: Partial<PathResolverOptions>) => createPathPlugin({
+				prefix: '@fonts',
+				folder: 'fonts',
+				emoji: '🔤',
+				devRoot: 'src',
+				prodRoot: 'dist',
+				...options,
+			}))(),
+
 			// HTML includes
 			viteHTMLIncludes({
 				componentsPath: "/html/"
@@ -111,46 +134,11 @@ export default defineConfig(({ command, mode }) => {
 			// HTML template processing
 			htmlTemplate(),
 
-			// Asset copying
-			copyAssets(isBuild, buildFolder),
-
 			// Script optimization
 			scriptOptimization(),
 
-			//// WebP HTML support
+			// WebP HTML support
 			webpHtmlPlugin(),
-
-			// Image path handling
-			imgPath(),
-
-			// Image optimization
-			ViteImageOptimizer({
-				test: /\.(jpe?g|png|gif|tiff|webp|svg|avif)$/i,
-				include: ['src/**/*'],
-				exclude: ['node_modules/**/*'],
-				svgo: {
-					multipass: true,
-					plugins: [
-						{ name: 'preset-default' },
-						{ name: 'removeViewBox', active: false }
-					]
-				},
-				png: {
-					quality: 80
-				},
-				jpeg: {
-					quality: 80
-				},
-				jpg: {
-					quality: 80
-				},
-				webp: {
-          smartSubsample: true,
-          force: true,
-					lossless: true
-				}
-			})
 		]
 	};
 });
-
