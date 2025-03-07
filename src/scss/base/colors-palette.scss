@@ -1,0 +1,26 @@
+:root {
+	// Site colors:
+	--primary: 83.32% 0.0468 76.76;
+	--secondary: 16.38% 0 0;
+	--tertiary: 21.78% 0 0;
+	--muted: 83.32% 0.0468 76.76 / 60%;
+
+	// Background colors:
+	--bg-primary: 83.32% 0.0468 76.76;
+	--bg-secondary: 16.38% 0 0;
+	--bg-tertiary: 21.78% 0 0;
+	--bg-muted-primary: 83.32% 0.0468 76.76;
+	--bg-muted-primary-alpha: 83.32% 0.0468 76.76 / 5.1%;
+	--bg-muted-secondary: 100% 0 0;
+	--bg-muted-secondary-alpha: 100% 0 0 / 7.06%;
+
+	// Text colors:
+	--text-primary: 83.32% 0.0468 76.76;
+	--text-secondary: 16.38% 0 0;
+	--text-muted: var(--text-primary) / 60%;
+	--text-inverse-muted: 100% 0 0 / 60%;
+
+	--border-primary: 83.32% 0.0468 76.76;
+	--border-default: 83.32% 0.0468 76.76 / 14.9%;
+	--border-inverse: 100% 0 0 / 12.16%;
+}
