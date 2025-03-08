@@ -26,8 +26,6 @@
 		border-radius: toRem(2);
 		border: toRem(1) solid oklch(var(--border-default));
 		background-color: oklch(var(--bg-muted-primary-alpha));
-		container-type: inline-size;
-		container-name: header;
 		row-gap: toRem(15);
 		backdrop-filter: blur(toRem(15));
 
@@ -71,11 +69,5 @@
 		&:hover {
 			color: oklch(var(--text-primary) / 80%);
 		}
-	}
-}
-
-@container header (width >= #{toEm(503)}) {
-	.header__button {
-		white-space: nowrap;
 	}
 }

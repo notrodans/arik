@@ -13,7 +13,6 @@
 	padding-block: toRem(10);
 	padding-inline: toRem(16);
 	background: oklch(var(--bg-muted-primary-alpha));
-	backdrop-filter: blur(toRem(15));
 	border-radius: toRem(2);
 	@extend .transition-colors;
 
@@ -74,15 +73,22 @@
 	}
 
 	i {
-		background-color: oklch(var(--bg-muted-primary-alpha));
-		border-radius: 50%;
 		padding: toRem(8);
-		@extend .transition-colors;
-
-		&::before {
-			transform: rotate(-45deg) translate(toRem(1), toRem(-0.5));
-		}
 		font-size: toRem(18);
+	}
+
+	&:not(&--secondary, &--tertiary) {
+		i {
+			outline: toRem(1) solid oklch(var(--border-default));
+		}
+	}
+
+	&--arrow {
+		i {
+			&::before {
+				transform: rotate(-45deg) translate(toRem(1), toRem(-0.5));
+			}
+		}
 	}
 
 	&--secondary {
@@ -213,7 +219,7 @@ button.badge {
 .block-hero {
 	text-align: center;
 
-	&__subtitle {
+	&__super-title {
 		line-height: 160%;
 		letter-spacing: toRem(1.5);
 		text-transform: uppercase;
@@ -226,12 +232,23 @@ button.badge {
 	&__title {
 		@include adaptiveValue("font-size", 160, 48);
 		font-weight: 300;
-		max-width: toRem(1015);
+		// max-width: toRem(1015);
+
+		&--s {
+			@include adaptiveValue("font-size", 96, 48);
+			max-width: toRem(400);
+		}
+
+		&--m {
+			@include adaptiveValue("font-size", 128, 48);
+			max-width: toRem(710);
+		}
 
 		span {
 			font-family: "Gambetta";
 			font-style: italic;
 		}
+
 		&:not(:last-child) {
 			margin-block-end: toRem(16);
 		}
@@ -244,6 +261,15 @@ button.badge {
 		color: oklch(var(--text-muted));
 		max-width: toRem(600);
 		line-height: 150%;
+
+		&--m {
+			@include adaptiveValue("font-size", 20, 16);
+		}
+
+		&--s {
+			@include adaptiveValue("font-size", 18, 16);
+			line-height: 160%;
+		}
 
 		&:not(:last-child) {
 			@include adaptiveValue("margin-block-end", 48, 20);
@@ -259,6 +285,9 @@ button.badge {
 		&::before {
 			transform: rotate(90deg);
 		}
+	}
+
+	&__button {
 	}
 }
 
@@ -277,7 +306,7 @@ button.badge {
 		}
 	}
 
-	&__subtitle {
+	&__super-title {
 		line-height: 160%;
 		letter-spacing: toRem(1.5);
 		color: oklch(var(--text-muted));
@@ -287,11 +316,20 @@ button.badge {
 		}
 	}
 
+	&__image {
+		height: toRem(30);
+		object-position: left center;
+		object-fit: contain;
+		&:not(:last-child) {
+			@include adaptiveValue("margin-block-end", 32, 20);
+		}
+	}
+
 	&__title {
 		@include adaptiveValue("font-size", 24, 18);
 		line-height: 130%;
 		letter-spacing: toRem(1);
-		text-transform: uppercase;
+		font-weight: 300;
 
 		&:not(:last-child) {
 			margin-block-end: toRem(8);
@@ -339,6 +377,35 @@ button.badge {
 		@include adaptiveValue("top", 20, 5);
 		@include adaptiveValue("right", 20, 5);
 		position: absolute;
+	}
+
+	&__avatar {
+		display: flex;
+		align-items: center;
+		column-gap: toRem(16);
+
+		img {
+			max-width: toRem(60);
+		}
+	}
+
+	&__figcaption {
+		display: flex;
+		flex-direction: column;
+
+		span {
+			line-height: 160%;
+			&:first-child {
+				letter-spacing: toRem(1.5);
+				text-transform: uppercase;
+			}
+			&:last-child {
+				font-family: "Chillax";
+				font-size: toRem(14);
+				font-weight: 300;
+				color: oklch(var(--text-muted));
+			}
+		}
 	}
 }
 
@@ -451,5 +518,37 @@ button.badge {
 		letter-spacing: toRem(1.5);
 		line-height: 160%;
 		text-transform: uppercase;
+	}
+}
+
+.marquee {
+	background: rgba(218, 197, 167, 0.1);
+	padding-block: toRem(16);
+	text-transform: uppercase;
+	line-height: 160%;
+	letter-spacing: toRem(1.5);
+	white-space: nowrap;
+	border-radius: toRem(2);
+	border: toRem(1) solid oklch(var(--border-default));
+
+	&__body {
+		animation: marquee 30s linear infinite;
+		display: flex;
+		column-gap: toRem(32);
+	}
+
+	&__item {
+	}
+
+	&__separator {
+	}
+}
+
+@keyframes marquee {
+	0% {
+		transform: translateX(0%);
+	}
+	100% {
+		transform: translateX(-100%);
 	}
 }

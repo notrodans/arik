@@ -1,16 +1,17 @@
 <!doctype html>
 <html lang="en">
 	<include src="head.html" locals='{"title": "Home"}'></include>
+	<script type="module" defer src="js/app.js"></script>
 	<body>
-		<div class="wrapper">
+		<div id="wrapper" class="wrapper">
 			<include src="header.html"></include>
 			<main class="page">
 				<section class="page__hero hero">
-					<img class="hero__image ibg" src="@img/hero.png" alt="Hero image" />
+					<img class="hero__image ibg" src="@img/me.png" alt="Hero image" />
 					<div class="hero__container">
 						<div class="hero__block block-hero">
 							<h1 class="block-hero__title">
-								Web Designer
+								Web Designer <br />
 								<span>& Developer</span>
 							</h1>
 							<p class="block-hero__text">
@@ -22,7 +23,7 @@
 								href="#services"
 								class="block-hero__goto button-text"
 							>
-								<i class="_icon-arrow"></i>
+								<i class="badge _icon-arrow"></i>
 								<span>MY SERVICES</span>
 							</a>
 						</div>
@@ -32,22 +33,22 @@
 				<section class="page__logos logos">
 					<ul class="logos__container">
 						<li class="logos__column">
-							<img src="@img/logos/logo.svg" alt="Logo" />
+							<img src="@img/logos/logo.svg" alt="Silverstone Corporation" />
 						</li>
 						<li class="logos__column">
-							<img src="@img/logos/logo-1.svg" alt="Logo1" />
+							<img src="@img/logos/logo-1.svg" alt="Redwood Technologies" />
 						</li>
 						<li class="logos__column">
-							<img src="@img/logos/logo-2.svg" alt="Logo2" />
+							<img src="@img/logos/logo-2.svg" alt="ABC Company" />
 						</li>
 						<li class="logos__column">
-							<img src="@img/logos/logo-3.svg" alt="Logo3" />
+							<img src="@img/logos/logo-3.svg" alt="Greenway Industries" />
 						</li>
 						<li class="logos__column">
-							<img src="@img/logos/logo-4.svg" alt="Logo4" />
+							<img src="@img/logos/logo-4.svg" alt="Some logo" />
 						</li>
 						<li class="logos__column">
-							<img src="@img/logos/logo-5.svg" alt="Logo4" />
+							<img src="@img/logos/logo-5.svg" alt="Design Inc." />
 						</li>
 					</ul>
 				</section>
@@ -55,7 +56,7 @@
 				<section id="services" class="page__services services">
 					<ul class="services__container">
 						<li class="services__item block-card block-card--text-grow">
-							<div class="block-card__subtitle">01</div>
+							<div class="block-card__super-title">01</div>
 							<h2 class="block-card__title">Web design</h2>
 							<p class="block-card__text">
 								Visually stunning web designs that captivate your audience by blending your brand
@@ -66,7 +67,7 @@
 							</a>
 						</li>
 						<li class="services__item block-card block-card--text-grow">
-							<div class="block-card__subtitle">02</div>
+							<div class="block-card__super-title">02</div>
 							<h2 class="block-card__title">Development</h2>
 							<p class="block-card__text">
 								Get custom web development solutions that are tailored to your specifications,
@@ -77,7 +78,7 @@
 							</a>
 						</li>
 						<li class="services__item block-card block-card--text-grow">
-							<div class="block-card__subtitle">03</div>
+							<div class="block-card__super-title">03</div>
 							<h2 class="block-card__title">Content & seo</h2>
 							<p class="block-card__text">
 								Proven SEO strategies that enhance your online performance, bringing you to the
@@ -95,7 +96,7 @@
 						<div class="selected-work__header">
 							<h2 class="selected-work__title">Selected <span>Work</span></h2>
 							<a href="#" class="button-text">
-								<i class="_icon-arrow"></i>
+								<i class="badge _icon-arrow"></i>
 								<span> SEE ALL </span>
 							</a>
 						</div>
@@ -159,12 +160,12 @@
 				<section class="page__process process">
 					<div class="process__container">
 						<div class="process__block block-hero">
-							<h3 class="block-hero__subtitle">THE PROCESS</h3>
-							<h1 class="block-hero__title">
+							<h3 class="block-card__super-title">THE PROCESS</h3>
+							<h1 class="block-hero__title block-hero__title--m">
 								Your Website
 								<span>in 5 steps</span>
 							</h1>
-							<p class="block-hero__text">
+							<p class="block-hero__text block-hero__text--m">
 								Our process ensures that we create a website tailored to your business needs.
 							</p>
 							<a
@@ -177,9 +178,9 @@
 							</a>
 						</div>
 						<ul id="process-road" class="process__body">
-							<li class="process__item services__item block-card">
-								<div class="block-card__subtitle">LOREM IPSUM</div>
-								<h2 class="block-card__title">Concept & STrategy</h2>
+							<li class="process__item block-card">
+								<div class="block-card__super-title">LOREM IPSUM</div>
+								<h2 class="block-card__title">CONCEPT & STRATEGY</h2>
 								<p class="block-card__text">
 									Together, we develop a strategy that successfully combines your goals with the
 									needs of your target audience. Based on this concept, I create the first
@@ -193,8 +194,8 @@
 								</ul>
 								<div class="block-card__badge label">1 WEEK</div>
 							</li>
-							<li class="process__item services__item block-card">
-								<div class="block-card__subtitle">DO WE MATCH?</div>
+							<li class="process__item block-card">
+								<div class="block-card__super-title">DO WE MATCH?</div>
 								<h2 class="block-card__title">DISCOVERY CALL</h2>
 								<p class="block-card__text">
 									Before we start, we determine if and how I can help you. What are your
@@ -208,8 +209,8 @@
 								</ul>
 								<div class="block-card__badge label">2 HOURS</div>
 							</li>
-							<li class="process__item services__item block-card">
-								<div class="block-card__subtitle">SOME MAGIC</div>
+							<li class="process__item block-card">
+								<div class="block-card__super-title">SOME MAGIC</div>
 								<h2 class="block-card__title">WEB DESIGN</h2>
 								<p class="block-card__text">
 									Now comes the magic. Based on the previously developed concept, I create a
@@ -223,8 +224,8 @@
 								</ul>
 								<div class="block-card__badge label">1 WEEK</div>
 							</li>
-							<li class="process__item services__item block-card">
-								<div class="block-card__subtitle">MORE MAGIC</div>
+							<li class="process__item block-card">
+								<div class="block-card__super-title">MORE MAGIC</div>
 								<h2 class="block-card__title">DEVELOPMENT</h2>
 								<p class="block-card__text">
 									In this step, we breathe life into your new high-end design. You will receive a
@@ -239,8 +240,8 @@
 								</ul>
 								<div class="block-card__badge label">2 WEEKS</div>
 							</li>
-							<li class="process__item services__item block-card">
-								<div class="block-card__subtitle">READY TO GO</div>
+							<li class="process__item block-card">
+								<div class="block-card__super-title">READY TO GO</div>
 								<h2 class="block-card__title">WEBSITE ONBOARDING</h2>
 								<p class="block-card__text">
 									In a personal Framer workshop, I will show you how to make changes to your new
@@ -259,8 +260,314 @@
 						</ul>
 					</div>
 				</section>
+
+				<section class="page__testimonials testimonials">
+					<div class="testimonials__container">
+						<div class="testimonials__block block-hero">
+							<h1 class="block-hero__title block-hero__title--s">
+								What my
+								<span>clients say</span>
+							</h1>
+							<p class="block-hero__text block-hero__text--s">
+								See what my clients have to say about working with me and the results I helped them
+								achieve.
+							</p>
+						</div>
+						<ul class="testimonials__body">
+							<li class="testimonials__item block-card">
+								<img class="block-card__image" src="@img/logos/logo-2.svg" alt="ABC Company" />
+								<h2 class="block-card__title">
+									Amazing Results with Arik’s Premium Web Design Services.
+								</h2>
+								<p class="block-card__text">
+									Arik is a top-notch web designer who created a stunning website for my business.
+									He was attentive to my needs and provided excellent customer service throughout
+									the entire process. I highly recommend his services.
+								</p>
+								<figure class="block-card__avatar">
+									<img src="@img/ceos/ceo-1.png" alt="JOHN SMITH" />
+									<figcaption class="block-card__figcaption">
+										<span>JOHN SMITH</span>
+										<span>ABC Company</span>
+									</figcaption>
+								</figure>
+							</li>
+							<li class="testimonials__item block-card">
+								<img class="block-card__image" src="@img/logos/logo-5.svg" alt="Design Inc." />
+								<h2 class="block-card__title">
+									Expert Webflow and SEO Services: Excellent Work, Great Results.
+								</h2>
+								<p class="block-card__text">
+									Working with Arik on my website redesign was a fantastic experience. He was able
+									to take my vision and turn it into a beautiful and functional website. His
+									attention to detail and creative approach is unmatched. I couldn't be happier with
+									the end result.
+								</p>
+								<figure class="block-card__avatar">
+									<img src="@img/ceos/ceo-4.png" alt="DAVID KIM" />
+									<figcaption class="block-card__figcaption">
+										<span>DAVID KIM</span>
+										<span>Design Inc.</span>
+									</figcaption>
+								</figure>
+							</li>
+							<li class="testimonials__item block-card">
+								<img
+									class="block-card__image"
+									src="@img/logos/logo-1.svg"
+									alt="Redwood Technologies"
+								/>
+								<h2 class="block-card__title">
+									Professional, Collaborative Web Design Experience with Arik.
+								</h2>
+								<p class="block-card__text">
+									I had the pleasure of working with Arik on a website development project and was
+									blown away by his expertise and professionalism. He made the process seamless and
+									delivered a website that exceeded our expectations. I highly recommend Arik for
+									all your web development needs.
+								</p>
+								<figure class="block-card__avatar">
+									<img src="@img/ceos/ceo-2.png" alt="KAREN LEE" />
+									<figcaption class="block-card__figcaption">
+										<span>KAREN LEE</span>
+										<span>Redwood Technologies</span>
+									</figcaption>
+								</figure>
+							</li>
+							<li class="testimonials__item block-card">
+								<img
+									class="block-card__image"
+									src="@img/logos/logo-6.svg"
+									alt="Silverstone Corporation"
+								/>
+								<h2 class="block-card__title">
+									Expertise in Web Design: Second to None with Arik.
+								</h2>
+								<p class="block-card__text">
+									Arik is not only an exceptional web designer, but also a pleasure to work with. He
+									took the time to understand my business and its unique needs, and created a
+									website that perfectly represents my brand. I highly recommend Arik's services to
+									anyone looking for a top-quality web designer.
+								</p>
+								<figure class="block-card__avatar">
+									<img src="@img/ceos/ceo-5.png" alt="ANDREW THOMPSON" />
+									<figcaption class="block-card__figcaption">
+										<span>ANDREW THOMPSON</span>
+										<span>Silverstone Corporation</span>
+									</figcaption>
+								</figure>
+							</li>
+							<li class="testimonials__item block-card">
+								<img
+									class="block-card__image"
+									src="@img/logos/logo-3.svg"
+									alt="Greenway Industries"
+								/>
+								<h2 class="block-card__title">
+									Web Design and Content Solutions: Stand Out from the Crowd.
+								</h2>
+								<p class="block-card__text">
+									Arik's SEO services have helped my business improve its online presence and
+									increase traffic to our website. He is knowledgeable, professional, and provides
+									excellent results. I highly recommend him for all your SEO needs.
+								</p>
+								<figure class="block-card__avatar">
+									<img src="@img/ceos/ceo-3.png" alt="EMILY DAVIS" />
+									<figcaption class="block-card__figcaption">
+										<span>EMILY DAVIS</span>
+										<span>Greenway Industries</span>
+									</figcaption>
+								</figure>
+							</li>
+							<li class="testimonials__item block-card">
+								<img
+									class="block-card__image"
+									src="@img/logos/logo.svg"
+									alt="Silverstone Corporation"
+								/>
+								<h2 class="block-card__title">
+									High-Quality Web Design: Exceptional Attention to Detail with Arik.
+								</h2>
+								<p class="block-card__text">
+									Arik's development services are top-notch. He is able to take complex ideas and
+									turn them into functional, user-friendly websites. His attention to detail and
+									commitment to customer satisfaction are unmatched. I highly recommend Arik for all
+									your web development needs.
+								</p>
+								<figure class="block-card__avatar">
+									<img src="@img/ceos/ceo-6.png" alt="RYAN CHEN" />
+									<figcaption class="block-card__figcaption">
+										<span>RYAN CHEN</span>
+										<span>Golden Gate Solution</span>
+									</figcaption>
+								</figure>
+							</li>
+						</ul>
+					</div>
+				</section>
+
+				<section data-prlx-parent data-prlx-center="top" class="page__about about">
+					<img class="about__image ibg" src="@img/me.png" alt="About image" />
+					<div class="about__decorations decorations-about">
+						<div data-prlx data-coefficient="2" data-axis="h" class="decorations-about__block">
+							<div class="decorations-about__item">Arik <span>Andersson</span></div>
+						</div>
+						<div data-prlx data-coefficient="2" data-axis="h" class="decorations-about__block">
+							<div class="decorations-about__item">Arik <span>Andersson</span></div>
+						</div>
+					</div>
+					<div class="about__container">
+						<div class="about__body">
+							<h2 class="about__title">
+								A website that leaves
+								<span>a lasting impression!</span>
+							</h2>
+							<div class="about__content">
+								<p class="about__text">
+									Hi, I'm Arik Andersson - a freelancer specializing in premium web design,
+									development, and SEO services. I'm passionate about creating unique and effective
+									solutions for my clients, and I bring a personal touch to every project. Let's
+									work together to bring your vision to life!
+								</p>
+								<ul class="about__socials">
+									<li class="about__item">
+										<a href="#" class="about__link badge badge--l _icon-twitter">
+											<span class="visibility-hidden">Twitter</span>
+										</a>
+									</li>
+									<li class="about__item">
+										<a href="#" class="about__link badge badge--l _icon-instagram">
+											<span class="visibility-hidden">Instagram</span>
+										</a>
+									</li>
+									<li class="about__item">
+										<a href="#" class="about__link badge badge--l _icon-dribbble">
+											<span class="visibility-hidden">Dribbble</span>
+										</a>
+									</li>
+									<li class="about__item">
+										<a href="#" class="about__link badge badge--l _icon-behance">
+											<span class="visibility-hidden">Behance</span>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section class="page__cta cta">
+					<div class="cta__marquee marquee">
+						<div class="marquee__body">
+							<div class="marquee__item">Let’s talk</div>
+							<div class="marquee__separator">+++</div>
+							<div class="marquee__item">Let’s talk</div>
+							<div class="marquee__separator">+++</div>
+							<div class="marquee__item">Let’s talk</div>
+							<div class="marquee__separator">+++</div>
+							<div class="marquee__item">Let’s talk</div>
+							<div class="marquee__separator">+++</div>
+							<div class="marquee__item">Let’s talk</div>
+							<div class="marquee__separator">+++</div>
+							<div class="marquee__item">Let’s talk</div>
+							<div class="marquee__separator">+++</div>
+							<div class="marquee__item">Let’s talk</div>
+							<div class="marquee__separator">+++</div>
+							<div class="marquee__item">Let’s talk</div>
+							<div class="marquee__separator">+++</div>
+							<div class="marquee__item">Let’s talk</div>
+							<div class="marquee__separator">+++</div>
+							<div class="marquee__item">Let’s talk</div>
+							<div class="marquee__separator">+++</div>
+							<div class="marquee__item">Let’s talk</div>
+							<div class="marquee__separator">+++</div>
+							<div class="marquee__item">Let’s talk</div>
+							<div class="marquee__separator">+++</div>
+							<div class="marquee__item">Let’s talk</div>
+							<div class="marquee__separator">+++</div>
+							<div class="marquee__item">Let’s talk</div>
+							<div class="marquee__separator">+++</div>
+							<div class="marquee__item">Let’s talk</div>
+							<div class="marquee__separator">+++</div>
+							<div class="marquee__item">Let’s talk</div>
+							<div class="marquee__separator">+++</div>
+							<div class="marquee__item">Let’s talk</div>
+							<div class="marquee__separator">+++</div>
+							<div class="marquee__item">Let’s talk</div>
+							<div class="marquee__separator">+++</div>
+							<div class="marquee__item">Let’s talk</div>
+							<div class="marquee__separator">+++</div>
+							<div class="marquee__item">Let’s talk</div>
+							<div class="marquee__separator">+++</div>
+							<div class="marquee__item">Let’s talk</div>
+							<div class="marquee__separator">+++</div>
+							<div class="marquee__item">Let’s talk</div>
+							<div class="marquee__separator">+++</div>
+							<div class="marquee__item">Let’s talk</div>
+							<div class="marquee__separator">+++</div>
+							<div class="marquee__item">Let’s talk</div>
+							<div class="marquee__separator">+++</div>
+							<div class="marquee__item">Let’s talk</div>
+							<div class="marquee__separator">+++</div>
+							<div class="marquee__item">Let’s talk</div>
+							<div class="marquee__separator">+++</div>
+							<div class="marquee__item">Let’s talk</div>
+							<div class="marquee__separator">+++</div>
+							<div class="marquee__item">Let’s talk</div>
+							<div class="marquee__separator">+++</div>
+							<div class="marquee__item">Let’s talk</div>
+							<div class="marquee__separator">+++</div>
+							<div class="marquee__item">Let’s talk</div>
+							<div class="marquee__separator">+++</div>
+							<div class="marquee__item">Let’s talk</div>
+							<div class="marquee__separator">+++</div>
+							<div class="marquee__item">Let’s talk</div>
+							<div class="marquee__separator">+++</div>
+							<div class="marquee__item">Let’s talk</div>
+							<div class="marquee__separator">+++</div>
+							<div class="marquee__item">Let’s talk</div>
+							<div class="marquee__separator">+++</div>
+							<div class="marquee__item">Let’s talk</div>
+							<div class="marquee__separator">+++</div>
+							<div class="marquee__item">Let’s talk</div>
+							<div class="marquee__separator">+++</div>
+							<div class="marquee__item">Let’s talk</div>
+							<div class="marquee__separator">+++</div>
+							<div class="marquee__item">Let’s talk</div>
+							<div class="marquee__separator">+++</div>
+							<div class="marquee__item">Let’s talk</div>
+							<div class="marquee__separator">+++</div>
+							<div class="marquee__item">Let’s talk</div>
+							<div class="marquee__separator">+++</div>
+							<div class="marquee__item">Let’s talk</div>
+							<div class="marquee__separator">+++</div>
+							<div class="marquee__item">Let’s talk</div>
+							<div class="marquee__separator">+++</div>
+							<div class="marquee__item">Let’s talk</div>
+							<div class="marquee__separator">+++</div>
+							<div class="marquee__item">Let’s talk</div>
+							<div class="marquee__separator">+++</div>
+						</div>
+					</div>
+					<div class="cta__container">
+						<div class="cta__block block-hero">
+							<h3 class="block-hero__super-title">PROJECT IN MIND?</h3>
+							<h2 class="block-hero__title">
+								Let’s make your
+								<span>Website shine</span>
+							</h2>
+							<p class="block-hero__text block-hero__text--m">
+								Premium web design, webflow, and SEO services to help your business stand out.
+							</p>
+							<button class="block-hero__button button button--secondary button--arrow">
+								<span>GET IN TOUCH</span>
+								<i class="_icon-arrow"></i>
+							</button>
+						</div>
+					</div>
+				</section>
 			</main>
-			<include src="footer.html"></include>
+			<include src="footer.htm"></include>
 		</div>
 	</body>
 </html>

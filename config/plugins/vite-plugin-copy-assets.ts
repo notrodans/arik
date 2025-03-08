@@ -1,21 +1,21 @@
 import fs from "fs";
 import path from "path";
 import sharp from "sharp";
-import { createRequire } from 'module';
-import ttf2woff2 from "ttf2woff2";
+import { createRequire } from "module";
 
 // Helper function to check if a file is a font
 function isFontFile(filename: string): boolean {
-  const fontExtensions = [".ttf", ".otf", ".woff", ".woff2"];
-  return fontExtensions.some(ext => filename.toLowerCase().endsWith(ext));
+	const fontExtensions = [".ttf", ".otf", ".woff", ".woff2"];
+	return fontExtensions.some(ext => filename.toLowerCase().endsWith(ext));
 }
 
 // Helper function to check if a file is an image
 function isImageFile(filename: string): boolean {
-  const imgExtensions = [".jpg", ".jpeg", ".png", ".gif", ".svg"];
-  return imgExtensions.some(ext => filename.toLowerCase().endsWith(ext));
+	const imgExtensions = [".jpg", ".jpeg", ".png", ".gif", ".svg"];
+	return imgExtensions.some(ext => filename.toLowerCase().endsWith(ext));
 }
 
+/*
 // Convert TTF to WOFF2 using ttf2woff2
 async function convertTtfToWoff2(ttfFile: string, fontsFolderDest: string): Promise<boolean> {
   try {
@@ -48,26 +48,25 @@ async function convertTtfToWoff2(ttfFile: string, fontsFolderDest: string): Prom
     return false;
   }
 }
+*/
 
 // Convert image to WebP format
 async function convertToWebP(imgPath: string, destDir: string): Promise<void> {
-  try {
-    const filename = path.basename(imgPath);
-    const webpPath = path.join(destDir, `${path.parse(filename).name}.webp`);
+	try {
+		const filename = path.basename(imgPath);
+		const webpPath = path.join(destDir, `${path.parse(filename).name}.webp`);
 
-    // Skip if already converted
-    if (fs.existsSync(webpPath)) {
-      return;
-    }
+		// Skip if already converted
+		if (fs.existsSync(webpPath)) {
+			return;
+		}
 
-    await sharp(imgPath)
-      .webp({ quality: 80 })
-      .toFile(webpPath);
+		await sharp(imgPath).webp({ quality: 80 }).toFile(webpPath);
 
-    console.log(`Converted ${filename} to WebP`);
-  } catch (err) {
-    console.error(`Error converting ${path.basename(imgPath)} to WebP:`, err.message);
-  }
+		console.log(`Converted ${filename} to WebP`);
+	} catch (err) {
+		console.error(`Error converting ${path.basename(imgPath)} to WebP:`, err.message);
+	}
 }
 
 /**
@@ -76,73 +75,74 @@ async function convertToWebP(imgPath: string, destDir: string): Promise<void> {
  * @param buildFolder - The output directory for the build
  */
 export default function copyAssets(isBuild: boolean, buildFolder: string) {
-  return {
-    name: "vite-plugin-copy-assets",
-    apply: "build",
-    
-    async closeBundle() {
-      if (!isBuild) return;
+	return {
+		name: "vite-plugin-copy-assets",
+		apply: "build",
 
-      try {
-        console.log("Copying and processing assets...");
+		async closeBundle() {
+			if (!isBuild) return;
 
-        // Create destination directories
-        const distImgDir = path.resolve(`${buildFolder}/img`);
-        const distFontsDir = path.resolve(`${buildFolder}/fonts`);
-        await fs.promises.mkdir(distImgDir, { recursive: true });
-        await fs.promises.mkdir(distFontsDir, { recursive: true });
+			try {
+				console.log("Copying and processing assets...");
 
-        // Process images
-        const srcImgDir = path.resolve("src/img");
-        if (fs.existsSync(srcImgDir)) {
-          await processImagesInDir(srcImgDir, distImgDir);
-          console.log("Processed src/img to dist/img successfully");
-        }
+				// Create destination directories
+				const distImgDir = path.resolve(`${buildFolder}/img`);
+				const distFontsDir = path.resolve(`${buildFolder}/fonts`);
+				await fs.promises.mkdir(distImgDir, { recursive: true });
+				await fs.promises.mkdir(distFontsDir, { recursive: true });
 
-        // Process fonts
-        const srcFontsDir = path.resolve("src/fonts");
-        if (fs.existsSync(srcFontsDir)) {
-          await processFontsInDir(srcFontsDir, distFontsDir);
-          console.log("Processed src/fonts to dist/fonts successfully");
-        }
-      } catch (error) {
-        console.error("Error processing assets:", error);
-      }
-    }
-  };
+				// Process images
+				const srcImgDir = path.resolve("src/img");
+				if (fs.existsSync(srcImgDir)) {
+					await processImagesInDir(srcImgDir, distImgDir);
+					console.log("Processed src/img to dist/img successfully");
+				}
+
+				// Process fonts
+				const srcFontsDir = path.resolve("src/fonts");
+				if (fs.existsSync(srcFontsDir)) {
+					await processFontsInDir(srcFontsDir, distFontsDir);
+					console.log("Processed src/fonts to dist/fonts successfully");
+				}
+			} catch (error) {
+				console.error("Error processing assets:", error);
+			}
+		}
+	};
 }
 
 async function processImagesInDir(dir: string, destDir: string): Promise<void> {
-  try {
-    // First copy all files
-    await copyDir(dir, destDir);
+	try {
+		// First copy all files
+		await copyDir(dir, destDir);
 
-    // Then process conversions
-    const files = await fs.promises.readdir(dir);
-    const operations = [];
+		// Then process conversions
+		const files = await fs.promises.readdir(dir);
+		const operations = [];
 
-    for (const file of files) {
-      const filePath = path.join(dir, file);
-      const stats = await fs.promises.stat(filePath);
+		for (const file of files) {
+			const filePath = path.join(dir, file);
+			const stats = await fs.promises.stat(filePath);
 
-      if (stats.isDirectory()) {
-        operations.push(processImagesInDir(filePath, path.join(destDir, file)));
-      } else if (isImageFile(file) && !file.toLowerCase().endsWith('.svg')) {
-        operations.push(convertToWebP(filePath, destDir));
-      }
-    }
+			if (stats.isDirectory()) {
+				operations.push(processImagesInDir(filePath, path.join(destDir, file)));
+			} else if (isImageFile(file) && !file.toLowerCase().endsWith(".svg")) {
+				operations.push(convertToWebP(filePath, destDir));
+			}
+		}
 
-    await Promise.all(operations);
-  } catch (error) {
-    console.error(`Error processing images in ${dir}:`, error.message);
-  }
+		await Promise.all(operations);
+	} catch (error) {
+		console.error(`Error processing images in ${dir}:`, error.message);
+	}
 }
 
 async function processFontsInDir(dir: string, destDir: string): Promise<void> {
-  try {
-    // First copy all files
-    await copyDir(dir, destDir);
+	try {
+		// First copy all files
+		await copyDir(dir, destDir);
 
+		/*
     // Then process conversions
     const files = await fs.promises.readdir(dir);
     const processPromises = [];
@@ -162,26 +162,27 @@ async function processFontsInDir(dir: string, destDir: string): Promise<void> {
 
     await Promise.all(processPromises);
     console.log(`Processed all fonts. Converted ${conversionCount} TTF files to WOFF2`);
-  } catch (error) {
-    console.error("Error processing fonts:", error.message);
-  }
+    */
+	} catch (error) {
+		console.error("Error processing fonts:", error.message);
+	}
 }
 
 /**
  * Helper function to recursively copy a directory
  */
 async function copyDir(src: string, dest: string) {
-  const entries = await fs.promises.readdir(src, { withFileTypes: true });
+	const entries = await fs.promises.readdir(src, { withFileTypes: true });
 
-  for (const entry of entries) {
-    const srcPath = path.join(src, entry.name);
-    const destPath = path.join(dest, entry.name);
+	for (const entry of entries) {
+		const srcPath = path.join(src, entry.name);
+		const destPath = path.join(dest, entry.name);
 
-    if (entry.isDirectory()) {
-      await fs.promises.mkdir(destPath, { recursive: true });
-      await copyDir(srcPath, destPath);
-    } else {
-      await fs.promises.copyFile(srcPath, destPath);
-    }
-  }
+		if (entry.isDirectory()) {
+			await fs.promises.mkdir(destPath, { recursive: true });
+			await copyDir(srcPath, destPath);
+		} else {
+			await fs.promises.copyFile(srcPath, destPath);
+		}
+	}
 }

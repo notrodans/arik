@@ -4,12 +4,10 @@ import fs from "fs";
 import { execSync } from "child_process";
 import autoprefixer from "autoprefixer";
 import webpHtmlPlugin from "./config/plugins/vite-plugin-webp-html";
-import htmlTemplate from "./config/plugins/vite-plugin-html-template";
 import copyAssets from "./config/plugins/vite-plugin-copy-assets";
 import scriptOptimization from "./config/plugins/vite-plugin-script-optimization";
 import viteHTMLIncludes from "@kingkongdevs/vite-plugin-html-includes";
-import {PathResolverOptions, createPathPlugin} from "./config/abstractions/path-resolver"
-
+import { PathResolverOptions, createPathPlugin } from "./config/abstractions/path-resolver";
 
 // Build paths
 const srcFolder = "src";
@@ -44,10 +42,7 @@ export default defineConfig(({ command, mode }) => {
 		build: {
 			outDir: `../${buildFolder}`,
 			emptyOutDir: true,
-			//sourcemap: true,
-			//assetsDir: 'assets',
-			//assetsInlineLimit: 4096, // 4kb - файлы меньше будут инлайниться
-			assetsInclude: ['**/*.{png,jpg,jpeg,gif,svg,webp,avif}'],
+			assetsInclude: ["**/*.{png,jpg,jpeg,gif,svg,webp,avif}"],
 			rollupOptions: {
 				input: Object.fromEntries(
 					htmlPages.map(page => [page.replace(/\.html$/, ""), resolve(srcFolder, page)])
@@ -55,44 +50,38 @@ export default defineConfig(({ command, mode }) => {
 				output: {
 					entryFileNames: "js/[name].[hash].js",
 					chunkFileNames: "js/[name].[hash].js",
-					assetFileNames: (assetInfo) => {
-						if (!assetInfo.name) return 'assets/[name][extname]';
+					assetFileNames: assetInfo => {
+						if (!assetInfo.name) return "assets/[name][extname]";
 
-						// Получаем путь относительно src
-						const srcPath = assetInfo.name.split('/src/').pop() || assetInfo.name;
-						
-						// Получаем расширение файла
-						const extType = srcPath.split('.').at(-1);
-						
-						// Получаем путь к директории относительно src
-						const dirPath = srcPath.split('/').slice(0, -1).join('/');
-						
-						// Распределяем файлы по папкам в зависимости от расширения и пути
+						const srcPath = assetInfo.name.split("/src/").pop() || assetInfo.name;
+
+						const extType = srcPath.split(".").at(-1);
+
+						if (!extType) return "assets/default.[extname]";
+
+						const dirPath = srcPath.split("/").slice(0, -1).join("/");
+
 						if (/png|jpe?g|svg|gif|tiff|bmp|ico|webp|avif/i.test(extType)) {
-							// Если файл уже в папке img или её подпапке, сохраняем структуру
-							if (dirPath.startsWith('img/')) {
+							if (dirPath.startsWith("img/")) {
 								return `${dirPath}/[name][extname]`;
 							}
 							return `img/[name][extname]`;
 						}
-						
+
 						if (/woff2?|ttf|otf|eot/i.test(extType)) {
-							// Если файл уже в папке fonts или её подпапке, сохраняем структуру
-							if (dirPath.startsWith('fonts/')) {
+							if (dirPath.startsWith("fonts/")) {
 								return `${dirPath}/[name][extname]`;
 							}
 							return `fonts/[name][extname]`;
 						}
 
 						if (/css/i.test(extType)) {
-							// Если файл уже в папке css или её подпапке, сохраняем структуру
-							if (dirPath.startsWith('css/')) {
+							if (dirPath.startsWith("css/")) {
 								return `${dirPath}/[name].minify[extname]`;
 							}
 							return `css/[name].minify[extname]`;
 						}
 
-						// Для всех остальных файлов сохраняем оригинальную структуру папок
 						if (dirPath) {
 							return `${dirPath}/[name][extname]`;
 						}
@@ -106,39 +95,36 @@ export default defineConfig(({ command, mode }) => {
 			// Asset copying
 			copyAssets(isBuild, buildFolder),
 
-			// Image path handling
-			((options?: Partial<PathResolverOptions>) => createPathPlugin({
-				prefix: '@img',
-				folder: 'img/',
-				emoji: '🖼️',
+			// Images path handling
+			createPathPlugin({
+				name: "images",
+				prefix: "@img",
+				folder: "img/",
+				emoji: "🖼️",
 				devRoot: "src",
-				prodRoot: "dist",
-				...options
-			}))(),
+				prodRoot: "dist"
+			}),
 
-			// Font path plugin
-			((options?: Partial<PathResolverOptions>) => createPathPlugin({
-				prefix: '@fonts',
-				folder: 'fonts',
-				emoji: '🔤',
-				devRoot: 'src',
-				prodRoot: 'dist',
-				...options,
-			}))(),
+			// Fonts path plugin
+			createPathPlugin({
+				name: "fonts",
+				prefix: "@fonts",
+				folder: "fonts",
+				emoji: "🔤",
+				devRoot: "src",
+				prodRoot: "dist"
+			}),
 
 			// HTML includes
 			viteHTMLIncludes({
 				componentsPath: "/html/"
 			}),
 
-			// HTML template processing
-			htmlTemplate(),
-
 			// Script optimization
 			scriptOptimization(),
 
 			// WebP HTML support
-			webpHtmlPlugin(),
+			webpHtmlPlugin()
 		]
 	};
 });

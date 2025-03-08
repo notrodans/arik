@@ -39,8 +39,7 @@
 		"ts-node": "^10.9.2",
 		"ttf2woff2": "^5.0.0",
 		"typescript": "^5.8.2",
-		"vite": "^6.2.1",
-		"vite-plugin-imagemin": "^0.6.1"
+		"vite": "^6.2.1"
 	},
 	"dependencies": {
 		"isotope-layout": "^3.0.6",
