@@ -27,8 +27,8 @@ $maxWidth: 1920;
 $maxWidthContainer: 1400;
 $maxWidthContainerSecondary: 1200;
 
-// padding-inline = value / 2
-$containerPadding: 30;
+// padding-inline
+$containerPadding: 15;
 
 // Breakpoints
 $containerWidth: $maxWidthContainer + $containerPadding;
@@ -87,8 +87,7 @@ body {
 			@if ($maxWidthContainer>0) {
 				padding: 0 toRem(math.div($containerPadding, 2));
 			} @else {
-				@include adaptiveValue("padding-left", math.div($containerPadding, 2), 15);
-				@include adaptiveValue("padding-right", math.div($containerPadding, 2), 15);
+				@include adaptiveValue("padding-inline", $containerPadding, 15);
 			}
 		}
 	}
@@ -101,8 +100,7 @@ body {
 			@if ($maxWidthContainerSecondary>0) {
 				padding: 0 toRem(math.div($containerPadding, 2));
 			} @else {
-				@include adaptiveValue("padding-left", math.div($containerPadding, 2), 15);
-				@include adaptiveValue("padding-right", math.div($containerPadding, 2), 15);
+				@include adaptiveValue("padding-inline", $containerPadding, 15);
 			}
 		}
 	}
@@ -158,4 +156,24 @@ body {
 	width: 0;
 	height: 0;
 	flex-basis: 0;
+}
+
+.page {
+	&__hero {
+		@include adaptiveValue("padding-block-start", 224, 160);
+		&.selected-work {
+			@include adaptiveValue("padding-block-end", 160, 40);
+		}
+	}
+
+	&__logos {
+		max-width: toRem(1200);
+		margin-inline: auto;
+	}
+
+	&__services {
+	}
+
+	&__selected-work {
+	}
 }
