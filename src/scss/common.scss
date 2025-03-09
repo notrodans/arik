@@ -134,12 +134,12 @@
 	aspect-ratio: 1;
 	@extend .transition-colors;
 
-	&--m {
+	&.badge--m {
 		padding: toRem(12.5);
 		font-size: toRem(16);
 	}
 
-	&--l {
+	&.badge--l {
 		padding: toRem(13);
 		font-size: toRem(20);
 	}
@@ -220,10 +220,6 @@ button.badge {
 	text-align: center;
 
 	&__super-title {
-		line-height: 160%;
-		letter-spacing: toRem(1.5);
-		text-transform: uppercase;
-
 		&:not(:last-child) {
 			margin-block-end: toRem(16);
 		}
@@ -232,7 +228,6 @@ button.badge {
 	&__title {
 		@include adaptiveValue("font-size", 160, 48);
 		font-weight: 300;
-		// max-width: toRem(1015);
 
 		&--s {
 			@include adaptiveValue("font-size", 96, 48);
@@ -307,9 +302,6 @@ button.badge {
 	}
 
 	&__super-title {
-		line-height: 160%;
-		letter-spacing: toRem(1.5);
-		color: oklch(var(--text-muted));
 		max-width: 88.84%;
 		&:not(:last-child) {
 			margin-block-end: toRem(4);
@@ -336,10 +328,6 @@ button.badge {
 		}
 	}
 	&__text {
-		font-family: "Chillax";
-		font-size: toRem(16);
-		line-height: 180%;
-		color: oklch(var(--text-muted));
 		&:not(:last-child) {
 			@include adaptiveValue("margin-block-end", 32, 18);
 		}
@@ -409,10 +397,25 @@ button.badge {
 	}
 }
 
+.super-title {
+	text-transform: uppercase;
+	line-height: 160%;
+	letter-spacing: toRem(1.5);
+
+	&--muted {
+		color: oklch(var(--text-muted));
+	}
+
+	&--center {
+		text-align: center;
+	}
+}
+
 .item-work-selected {
 	position: relative;
 	border-radius: toRem(2);
 	border: toRem(1) solid oklch(var(--border-default));
+
 	&__image {
 		position: absolute;
 		top: 0;
@@ -456,19 +459,6 @@ button.badge {
 	position: relative;
 	border-radius: toRem(2);
 	border: toRem(1) solid oklch(var(--border-default));
-
-	&::before {
-		content: "";
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		background: url("@img/noise.png") 0 0 / 100% repeat;
-		z-index: 1;
-		pointer-events: none;
-		transition: all 150ms;
-	}
 
 	> a {
 		width: 100%;
@@ -550,5 +540,34 @@ button.badge {
 	}
 	100% {
 		transform: translateX(-100%);
+	}
+}
+
+.noise {
+	position: relative;
+
+	&::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: url("@img/noise.png") 0 0 / toRem(168) repeat;
+		z-index: 1;
+		pointer-events: none;
+		transition: all 150ms;
+	}
+}
+
+.paragraph {
+	font-family: "Chillax";
+	font-size: toRem(16);
+	line-height: 180%;
+	color: oklch(var(--text-muted));
+
+	&--m {
+		font-size: toRem(18);
+		line-height: 160%;
 	}
 }

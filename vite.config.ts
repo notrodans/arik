@@ -10,18 +10,18 @@ import viteHTMLIncludes from "@kingkongdevs/vite-plugin-html-includes";
 import { PathResolverOptions, createPathPlugin } from "./config/abstractions/path-resolver";
 
 // Build paths
-const srcFolder = "src";
-const buildFolder = "dist";
+const SRC_FOLDER = "src";
+const BUILD_FOLDER = "website";
 
 // HTML page files
-const htmlPages = fs.readdirSync(srcFolder).filter(file => file.endsWith(".html"));
+const htmlPages = fs.readdirSync(SRC_FOLDER).filter(file => file.endsWith(".html"));
 
 // Configure Vite
 export default defineConfig(({ command, mode }) => {
 	const isBuild = command === "build";
 
 	return {
-		root: srcFolder,
+		root: SRC_FOLDER,
 		base: "./",
 		publicDir: "public",
 
@@ -40,12 +40,12 @@ export default defineConfig(({ command, mode }) => {
 		},
 
 		build: {
-			outDir: `../${buildFolder}`,
+			outDir: `../${BUILD_FOLDER}`,
 			emptyOutDir: true,
 			assetsInclude: ["**/*.{png,jpg,jpeg,gif,svg,webp,avif}"],
 			rollupOptions: {
 				input: Object.fromEntries(
-					htmlPages.map(page => [page.replace(/\.html$/, ""), resolve(srcFolder, page)])
+					htmlPages.map(page => [page.replace(/\.html$/, ""), resolve(SRC_FOLDER, page)])
 				),
 				output: {
 					entryFileNames: "js/[name].[hash].js",
@@ -93,7 +93,7 @@ export default defineConfig(({ command, mode }) => {
 
 		plugins: [
 			// Asset copying
-			copyAssets(isBuild, buildFolder),
+			copyAssets(isBuild, BUILD_FOLDER),
 
 			// Images path handling
 			createPathPlugin({
@@ -102,7 +102,7 @@ export default defineConfig(({ command, mode }) => {
 				folder: "img/",
 				emoji: "🖼️",
 				devRoot: "src",
-				prodRoot: "dist"
+				prodRoot: BUILD_FOLDER
 			}),
 
 			// Fonts path plugin
@@ -112,7 +112,7 @@ export default defineConfig(({ command, mode }) => {
 				folder: "fonts",
 				emoji: "🔤",
 				devRoot: "src",
-				prodRoot: "dist"
+				prodRoot: BUILD_FOLDER
 			}),
 
 			// HTML includes
