@@ -44,9 +44,11 @@ export default defineConfig(({ command, mode }) => {
 			emptyOutDir: true,
 			assetsInclude: ["**/*.{png,jpg,jpeg,gif,svg,webp,avif}"],
 			rollupOptions: {
-				input: Object.fromEntries(
-					htmlPages.map(page => [page.replace(/\.html$/, ""), resolve(SRC_FOLDER, page)])
-				),
+				input: {
+					...Object.fromEntries(
+						htmlPages.map(page => {console.log(page);return [page.replace(/\.html$/, ""), resolve(SRC_FOLDER, page)]})
+					),
+				},
 				output: {
 					entryFileNames: "js/[name].[hash].js",
 					chunkFileNames: "js/[name].[hash].js",

@@ -518,3 +518,130 @@
 	&__text {
 	}
 }
+
+.contact {
+	&__container {
+		display: grid;
+		@media (min-width: $mobile) {
+			grid-template-columns: 51.35% 42.85%;
+		}
+		@include adaptiveValue("gap", 80, 20);
+		justify-content: space-between;
+	}
+
+	&__image {
+		aspect-ratio: 719 / 814.6;
+	}
+
+	&__body {
+		@media (max-width: $mobile) {
+			grid-row: 1;
+		}
+	}
+
+	&__form {
+		width: 100%;
+		@include adaptiveValue("padding", 48, 24);
+		border-radius: toRem(2);
+		border: toRem(1) solid oklch(var(--border-default));
+		background: oklch(var(--bg-muted-primary-alpha));
+		align-self: flex-start;
+	}
+
+	&__header {
+		&:not(:last-child) {
+			margin-block-end: toRem(32);
+		}
+	}
+
+	&__super-title {
+		&:not(:last-child) {
+			margin-block-end: toRem(8);
+		}
+	}
+
+	&__title {
+	}
+
+	&__body {
+		display: flex;
+		flex-direction: column;
+		row-gap: toRem(16);
+	}
+
+	&__input {
+		&--name {
+		}
+		&--email {
+		}
+		&--textarea {
+			min-height: toRem(200);
+			resize: vertical;
+		}
+	}
+
+	&__button {
+		justify-content: center;
+	}
+
+	&__socials {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(toRem(290), 1fr));
+		gap: toRem(16);
+	}
+	&__social {
+	}
+	&__link {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		column-gap: toRem(8);
+		padding: toRem(16);
+		border-radius: toRem(1);
+		border: toRem(1) solid oklch(var(--border-default));
+		background-color: oklch(var(--bg-muted-primary-alpha));
+		transition:
+			background 0.3s ease,
+			border-color 0.3s ease;
+
+		div {
+			display: flex;
+			align-items: center;
+			column-gap: toRem(16);
+			transition: transform 0.3s ease;
+
+			span:first-child {
+				font-size: toRem(24);
+				transition: transform 0.3s ease;
+			}
+
+			span:last-child {
+				line-height: 160%;
+				letter-spacing: toRem(1.5);
+				text-transform: uppercase;
+				transition: color 0.3s ease;
+			}
+		}
+
+		> span {
+			&::before {
+				font-size: toRem(16);
+				transform: rotate(-45deg) translate(1px, -1px);
+				transition: transform 0.3s ease;
+			}
+		}
+
+		&:hover {
+			background: oklch(var(--bg-muted-primary-hover));
+			border-color: oklch(var(--border-hover));
+
+			div {
+				transform: translateX(toRem(4));
+			}
+
+			span:last-child {
+				color: oklch(var(--text-hover));
+			}
+		}
+	}
+}

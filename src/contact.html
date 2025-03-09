@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+	<include src="head.htm" locals='{"title": "Home"}'></include>
+	<script type="module" defer src="js/app.js"></script>
+	<body>
+		<div id="wrapper" class="wrapper">
+			<include src="header.htm"></include>
+			<main class="page page--contact">
+				<section class="page__hero contact">
+					<div class="contact__container">
+						<div class="contact__image">
+							<img class="ibg" src="@img/head.png" alt="image" />
+						</div>
+						<div class="contact__body">
+							<form method="GET" class="contact__form">
+								<div class="contact__header">
+									<h3 class="contact__super-title super-title super-title--muted">contact</h3>
+									<h2 class="contact__title title">Let’s get in touch.</h2>
+								</div>
+								<div class="contact__body">
+									<input
+										name="name"
+										placeholder="name"
+										type="text"
+										class="contact__input contact__input--name input"
+									/>
+									<input
+										name="email"
+										type="email"
+										placeholder="email"
+										class="contact__input contact__input--email input"
+									/>
+									<textarea
+										placeholder="message"
+										class="contact__input contact__input--textarea input"
+									></textarea>
+									<button class="contact__button button button--secondary button--l">
+										<span>SEND MESSAGE</span>
+									</button>
+								</div>
+							</form>
+
+							<ul class="contact__socials">
+								<li class="contact__social">
+									<a href="#" class="contact__link">
+										<div>
+											<span class="_icon-instagram"></span>
+											<span>INSTAGRAM</span>
+										</div>
+										<span class="_icon-arrow"></span>
+									</a>
+								</li>
+								<li class="contact__social">
+									<a href="#" class="contact__link">
+										<div>
+											<span class="_icon-twitter"></span>
+											<span>TWITTER</span>
+										</div>
+										<span class="_icon-arrow"></span>
+									</a>
+								</li>
+								<li class="contact__social">
+									<a href="#" class="contact__link">
+										<div>
+											<span class="_icon-facebook"></span>
+											<span>FACEBOOK</span>
+										</div>
+										<span class="_icon-arrow"></span>
+									</a>
+								</li>
+								<li class="contact__social">
+									<a href="#" class="contact__link">
+										<div>
+											<span class="_icon-behance"></span>
+											<span>BEHANCE</span>
+										</div>
+										<span class="_icon-arrow"></span>
+									</a>
+								</li>
+								<li class="contact__social">
+									<a href="#" class="contact__link">
+										<div>
+											<span class="_icon-dribbble"></span>
+											<span>DRIBBBLE</span>
+										</div>
+										<span class="_icon-arrow"></span>
+									</a>
+								</li>
+								<li class="contact__social">
+									<a href="#" class="contact__link">
+										<div>
+											<span class="_icon-pinterest"></span>
+											<span>PINTEREST</span>
+										</div>
+										<span class="_icon-arrow"></span>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+			</main>
+			<include src="footer.htm"></include>
+		</div>
+	</body>
+</html>

@@ -121,6 +121,13 @@
 	}
 }
 
+a.badge,
+button.badge {
+	&:hover {
+		background: oklch(var(--bg-muted-primary) / 10%);
+	}
+}
+
 .badge {
 	display: inline-flex;
 	align-items: center;
@@ -144,7 +151,7 @@
 		font-size: toRem(20);
 	}
 
-	&--secondary {
+	&.badge--secondary {
 		background-color: oklch(var(--bg-primary));
 		color: oklch(var(--text-secondary));
 		outline: none;
@@ -154,7 +161,7 @@
 		}
 	}
 
-	&--tertiary {
+	&.badge--tertiary {
 		background-color: oklch(var(--bg-tertiary));
 		color: oklch(var(--text-primary));
 		outline: none;
@@ -167,13 +174,6 @@
 	&:focus-visible {
 		outline: toRem(2) solid oklch(var(--border-primary));
 		outline-offset: toRem(2);
-	}
-}
-
-a.badge,
-button.badge {
-	&:hover {
-		background: oklch(var(--bg-muted-primary) / 10%);
 	}
 }
 
@@ -208,6 +208,7 @@ button.badge {
 	border-radius: toRem(2);
 	padding-block: toRem(16);
 	padding-inline: toRem(24);
+	letter-spacing: toRem(1.5);
 
 	&::placeholder {
 		color: oklch(var(--text-primary));
@@ -570,4 +571,10 @@ button.badge {
 		font-size: toRem(18);
 		line-height: 160%;
 	}
+}
+
+.title {
+	@include adaptiveValue("font-size", 48, 32);
+	font-weight: 300;
+	line-height: 110%;
 }
