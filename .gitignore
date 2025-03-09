@@ -1,5 +1,6 @@
 phpmailer/
 node_modules/
+website/
 dist/
 Source/
 version.json
