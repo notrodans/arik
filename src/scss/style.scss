@@ -186,6 +186,9 @@ body {
 		&.contact {
 			@include adaptiveValue("padding-block-end", 160, 80);
 		}
+		&.blog {
+			@include adaptiveValue("padding-block-end", 160, 80);
+		}
 	}
 
 	&__logos {

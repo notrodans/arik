@@ -280,10 +280,10 @@
 
 .testimonials {
 	@include adaptiveValue("padding-block-start", 80, 24);
-	$containerWidth: 1230;
+	$containerWidthSecondary: 1230;
 
 	&__container {
-		max-width: toRem($containerWidth);
+		max-width: toRem($containerWidthSecondary);
 	}
 
 	&__block {
@@ -321,9 +321,9 @@
 }
 
 .about {
-	$containerWidth: 1230;
+	$containerWidthSecondary: 1230;
 	@include adaptiveValue("padding-block-start", 80, 24);
-	@include adaptiveValue("padding-block-end", 232, 80, 0, $containerWidth, $minWidth);
+	@include adaptiveValue("padding-block-end", 232, 80, 0, $containerWidthSecondary, $minWidth);
 	min-height: 100svh;
 	position: relative;
 
@@ -338,7 +338,7 @@
 
 	&__container {
 		position: relative;
-		max-width: toRem($containerWidth);
+		max-width: toRem($containerWidthSecondary);
 	}
 
 	&__body {
@@ -346,7 +346,7 @@
 		min-height: 100svh;
 		display: grid;
 		@include adaptiveValue("padding-block-start", 773, 100, 0, $maxWidth, $minWidth);
-		@include adaptiveValue("column-gap", 64, 32, 0, $containerWidth, $minWidth);
+		@include adaptiveValue("column-gap", 64, 32, 0, $containerWidthSecondary, $minWidth);
 		row-gap: toRem(24);
 
 		@media (min-width: $mobile) {
@@ -374,7 +374,7 @@
 
 	&__text {
 		&:not(:last-child) {
-			@include adaptiveValue("margin-block-end", 32, 20, $containerWidth, $minWidth);
+			@include adaptiveValue("margin-block-end", 32, 20, $containerWidthSecondary, $minWidth);
 		}
 	}
 
@@ -633,7 +633,7 @@
 
 		&:hover {
 			background: oklch(var(--bg-muted-primary-hover));
-			border-color: oklch(var(--border-hover));
+			border-color: oklch(var(--border-primary));
 
 			div {
 				transform: translateX(toRem(4));
@@ -643,5 +643,86 @@
 				color: oklch(var(--text-hover));
 			}
 		}
+	}
+}
+
+.blog {
+	$containerWidthNew: 1600;
+	&__container {
+		max-width: toRem($containerWidthNew + $containerPadding);
+	}
+
+	&__block {
+		&:not(:last-child) {
+			@include adaptiveValue("margin-block-end", 64, 20, 0, $containerWidthNew, $minWidth);
+		}
+	}
+
+	&__body {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(toRem(290), 1fr));
+		@include adaptiveValue("gap", 32, 16, 0, $containerWidthNew, $minWidth);
+
+		@media (min-width: $tablet) {
+			grid-template-columns: repeat(3, minmax(25.75%, 1fr));
+			grid-auto-rows: 1fr;
+		}
+	}
+
+	&__item {
+	}
+}
+
+.item-blog {
+	$containerWidthNew: 1600;
+	@include adaptiveValue("padding", 48, 12, 0, $containerWidthNew, 767.98);
+	border-radius: toRem(2);
+	border: toRem(1) solid oklch(var(--border-default));
+	background-color: oklch(var(--bg-muted-primary-alpha));
+	display: flex;
+	flex-direction: column;
+
+	> a {
+		aspect-ratio: 416 / 270;
+		&:not(:last-child) {
+			margin-block-end: toRem(32);
+		}
+	}
+
+	&__image {
+		border-radius: toRem(1);
+		border: toRem(1) solid oklch(var(--border-default));
+	}
+
+	&__content {
+		flex: 1;
+		&:not(:last-child) {
+			margin-block-end: toRem(32);
+		}
+	}
+
+	&__date {
+		display: block;
+		line-height: 120%;
+		text-transform: uppercase;
+		font-family: "Chillax";
+		color: oklch(var(--text-muted));
+
+		&:not(:last-child) {
+			margin-block-end: toRem(8);
+		}
+	}
+
+	&__title {
+		&:not(:last-child) {
+			margin-block-end: toRem(8);
+		}
+	}
+
+	&__text {
+	}
+
+	&__label {
+		align-self: flex-start;
 	}
 }
