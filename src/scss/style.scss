@@ -189,6 +189,9 @@ body {
 		&.blog {
 			@include adaptiveValue("padding-block-end", 160, 80);
 		}
+		&.about {
+			@include adaptiveValue("padding-block-end", 160, 80);
+		}
 	}
 
 	&__logos {

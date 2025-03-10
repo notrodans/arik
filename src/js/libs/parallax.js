@@ -44,17 +44,13 @@ Parallax.Each = class {
 		const centerPoint = this.parent.dataset.prlxCenter ? this.parent.dataset.prlxCenter : "center";
 
 		if (positionParent.top < 30 && positionParent.bottom > -30) {
-			// Елемент у початковому положенні (0,0), коли батько знаходиться по відношенню до екрану:
 			switch (centerPoint) {
-				// верхній точці (початок батька стикається верхнього краю екрану)
 				case "top":
 					this.offset = -1 * topToWindow;
 					break;
-				// центрі екрана (середина батька у середині екрана)
 				case "center":
 					this.offset = heightWindow / 2 - (topToWindow + heightParent / 2);
 					break;
-				// Початок: нижня частина екрана = верхня частина батька
 				case "bottom":
 					this.offset = heightWindow - (topToWindow + heightParent);
 					break;
@@ -76,13 +72,10 @@ Parallax.Each = class {
 	}
 	parameters(el, parameters) {
 		if (parameters.axis == "v")
-			return (el.style.transform = `translate3D(0, ${(parameters.direction * (this.value / parameters.coefficient)).toFixed(2)}px,0) ${parameters.additionalProperties}`);
+			return (el.style.transform = `translate3D(0, ${(Number(parameters.direction) * (this.value / parameters.coefficient)).toFixed(2)}px,0) ${parameters.additionalProperties}`);
 
 		if (parameters.axis == "h")
-			return (el.style.transform = `translate3D(${(parameters.direction * (this.value / parameters.coefficient)).toFixed(2)}px,0,0) ${parameters.additionalProperties}`);
-
-		if (parameters.axis == "hl")
-			return (el.style.transform = `translate3D(-${(parameters.direction * (this.value / parameters.coefficient)).toFixed(2)}px,0,0) ${parameters.additionalProperties}`);
+			return (el.style.transform = `translate3D(${(Number(parameters.direction) * (this.value / parameters.coefficient)).toFixed(2)}px,0,0) ${parameters.additionalProperties}`);
 	}
 };
 if (document.querySelectorAll("[data-prlx-parent]")) {

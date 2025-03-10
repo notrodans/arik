@@ -15,6 +15,7 @@
 		width: toRem(50);
 		height: toRem(50);
 		transition: transform 150ms linear;
+
 		&::after {
 			content: "";
 			position: absolute;
@@ -22,7 +23,7 @@
 			height: 100%;
 			top: 0;
 			left: 0;
-			transition: opacity 150ms ease;
+			transition: opacity 350ms;
 			border-radius: 50%;
 			backdrop-filter: blur(toRem(15));
 			background-color: oklch(var(--bg-muted-primary-alpha));
