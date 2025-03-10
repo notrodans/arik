@@ -668,3 +668,16 @@ button.badge {
 		}
 	}
 }
+
+.block {
+	$containerWidthNew: 1600;
+
+	border-radius: toRem(2);
+	@include adaptiveValue("padding", 48, 12, 0, $containerWidthNew, 767.98);
+	border: toRem(1) solid oklch(var(--border-default));
+	background-color: oklch(var(--bg-muted-primary-alpha));
+
+	.block--m {
+		@include adaptiveValue("padding", 64, 20, 0, $containerWidthNew, 767.98);
+	}
+}
