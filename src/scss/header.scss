@@ -7,10 +7,6 @@
 	justify-content: center;
 	transition: padding-block-start 250ms;
 
-	@media (max-width: $mobileSmall) {
-		position: absolute;
-	}
-
 	&._header-scroll {
 		padding-block-start: toRem(12);
 	}

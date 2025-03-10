@@ -233,6 +233,10 @@ button.badge {
 		@include adaptiveValue("font-size", 160, 48);
 		font-weight: 300;
 
+		&--xs {
+			@include adaptiveValue("font-size", 80, 48);
+		}
+
 		&--s {
 			@include adaptiveValue("font-size", 96, 48);
 			max-width: toRem(400);
@@ -347,6 +351,7 @@ button.badge {
 		}
 	}
 	&__text {
+		max-width: toRem(800);
 		&:not(:last-child) {
 			@include adaptiveValue("margin-block-end", 32, 18);
 		}
@@ -404,7 +409,6 @@ button.badge {
 			line-height: 160%;
 			&:first-child {
 				letter-spacing: toRem(1.5);
-				text-transform: uppercase;
 			}
 			&:last-child {
 				font-family: "Chillax";
@@ -596,6 +600,12 @@ button.badge {
 	font-weight: 300;
 	line-height: 110%;
 
+	&--m {
+		@include adaptiveValue("font-size", 32, 20);
+		line-height: 120%;
+		letter-spacing: toRem(1);
+	}
+
 	&--s {
 		@include adaptiveValue("font-size", 24, 18);
 		line-height: 130%;
@@ -679,5 +689,37 @@ button.badge {
 
 	.block--m {
 		@include adaptiveValue("padding", 64, 20, 0, $containerWidthNew, 767.98);
+	}
+}
+
+.header-section {
+	@include adaptiveValue("padding-inline", 32, 20, 2, $containerWidth, 489.98);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	column-gap: toRem(24);
+	row-gap: toRem(10);
+	flex-wrap: wrap;
+
+	&:not(:last-child) {
+		margin-block-end: toRem(32);
+	}
+
+	&__title {
+		@include adaptiveValue("font-size", 64, 32);
+		line-height: 110%;
+		font-weight: 300;
+
+		span {
+			font-family: "Gambetta";
+		}
+	}
+
+	a {
+		i {
+			&::before {
+				transform: rotate(-45deg) translate(1px, -1px);
+			}
+		}
 	}
 }
