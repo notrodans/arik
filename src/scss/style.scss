@@ -153,11 +153,15 @@ body {
 @import "home";
 
 .visibility-hidden {
-	display: inline-block;
-	visibility: hidden;
-	width: 0;
-	height: 0;
-	flex-basis: 0;
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: auto;
+	margin: 0;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+	white-space: nowrap;
 }
 
 .page {
@@ -191,6 +195,9 @@ body {
 		}
 		&.about {
 			@include adaptiveValue("padding-block-end", 160, 80);
+		}
+		&.work-single {
+			@include adaptiveValue("padding-block-end", 128, 24);
 		}
 	}
 

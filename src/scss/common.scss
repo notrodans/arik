@@ -229,6 +229,13 @@ button.badge {
 		}
 	}
 
+	&__list {
+		margin-inline: auto;
+		&:not(:last-child) {
+			@include adaptiveValue("margin-block-end", 48, 20);
+		}
+	}
+
 	&__title {
 		@include adaptiveValue("font-size", 160, 48);
 		font-weight: 300;
@@ -306,6 +313,28 @@ button.badge {
 	}
 
 	&__button {
+	}
+}
+
+.list-hero {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	max-width: toRem(1000);
+	@include adaptiveValue("gap", 32, 16);
+
+	&__item {
+		padding: toRem(16);
+		flex: 1 1 toRem(226);
+		border-radius: toRem(2);
+		border: toRem(1) solid oklch(var(--border-default));
+		background-color: oklch(var(--bg-muted-primary-alpha));
+
+		div {
+			&:first-child {
+				margin-block-end: toRem(4);
+			}
+		}
 	}
 }
 
