@@ -893,3 +893,118 @@
 	&__item {
 	}
 }
+
+.pricing-hero {
+	@include adaptiveValue("padding-block-end", 64, 22);
+	&__container {
+	}
+
+	&__block {
+	}
+}
+
+.pricing {
+	@include adaptiveValue("padding-block-end", 160, 40);
+	&__container {
+	}
+
+	&__body {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(toRem(290), 1fr));
+		@include adaptiveValue("gap", 32, 16);
+
+		@media (min-width: $tablet) {
+			grid-template-columns: repeat(3, minmax(31.78%, 1fr));
+			grid-auto-rows: 1fr;
+		}
+	}
+
+	&__item {
+	}
+}
+
+.item-pricing {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	@include adaptiveValue("row-gap", 32, 16);
+	&__label {
+		position: absolute;
+		@include adaptiveValue("top", 20, 10);
+		@include adaptiveValue("right", 20, 10);
+	}
+
+	&__content {
+	}
+
+	&__super-title {
+		&:not(:last-child) {
+			margin-block-end: toRem(8);
+		}
+	}
+
+	&__price {
+		&:not(:last-child) {
+			margin-block-end: toRem(8);
+		}
+	}
+
+	&__text {
+	}
+
+	&__benefits {
+	}
+
+	&__benefit {
+		line-height: 160%;
+		letter-spacing: toRem(1.5);
+		text-transform: uppercase;
+	}
+
+	&__separator {
+		height: toRem(1);
+		background-color: oklch(var(--border-default));
+		@include adaptiveValue("margin-block", 16, 8);
+	}
+
+	&__link {
+		justify-content: center;
+	}
+}
+
+.faq-pricing {
+	@include adaptiveValue("padding-block-end", 160, 40);
+	&__container {
+		display: grid;
+		@include adaptiveValue("gap", 96, 20);
+
+		@media (min-width: $mobile) {
+			grid-template-columns: 46.57% 46.57%;
+		}
+	}
+
+	&__header {
+	}
+
+	&__super-title {
+		&:not(:last-child) {
+			margin-block-end: toRem(8);
+		}
+	}
+
+	&__title {
+		@media (min-width: $tablet) {
+			max-width: toRem(300);
+		}
+	}
+
+	&__body {
+		display: flex;
+		flex-direction: column;
+		row-gap: toRem(16);
+	}
+
+	&__item {
+		@include adaptiveValue("padding", 32, 20);
+	}
+}
