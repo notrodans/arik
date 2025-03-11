@@ -15,8 +15,8 @@
 }
 
 .page__hero.hero--home {
-	@include adaptiveValue("padding-block-start", 615, 160);
-	@include adaptiveValue("--offset", 0, 250, 0, $containerWidth, 320);
+	@include adaptiveValue("padding-block-start", 503, 40);
+	@include adaptiveValue("--offset", -112, 130, 0, $containerWidth, 320);
 	min-height: 100svh;
 
 	.hero__image {

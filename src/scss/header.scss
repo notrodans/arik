@@ -1,14 +1,16 @@
 .header {
-	@include adaptiveValue("padding-block-start", 48, 12);
-	position: fixed;
+	@include adaptiveValue("top", 48, 12);
+	position: sticky;
 	z-index: 9999;
 	display: flex;
 	width: 100%;
 	justify-content: center;
-	transition: padding-block-start 250ms;
+	transition: top 250ms;
+
+	padding-inline: toRem($containerPadding / 2);
 
 	&._header-scroll {
-		padding-block-start: toRem(12);
+		top: toRem(12);
 	}
 
 	&__container {
@@ -16,18 +18,13 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		max-width: toRem(496);
-		width: calc(100% - toRem(30));
 		min-height: toRem(64);
 		border-radius: toRem(2);
 		border: toRem(1) solid oklch(var(--border-default));
 		background-color: oklch(var(--bg-muted-primary-alpha));
-		row-gap: toRem(15);
+		gap: toRem(15);
 		backdrop-filter: blur(toRem(15));
-
-		@media (max-width: $mobileSmall) {
-			flex-direction: column;
-		}
+		flex-wrap: wrap;
 	}
 	&__body {
 	}
@@ -50,6 +47,7 @@
 
 	&__button {
 		align-self: stretch;
+		flex: 1 0 auto;
 	}
 }
 
@@ -57,7 +55,9 @@
 	&__list {
 		display: flex;
 		align-items: center;
-		@include adaptiveValue("column-gap", 20, 14);
+		flex-wrap: wrap;
+		row-gap: toRem(6);
+		@include adaptiveValue("column-gap", 20, 8);
 	}
 
 	&__link {

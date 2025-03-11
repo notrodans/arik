@@ -183,7 +183,7 @@ body {
 
 .page {
 	&__hero {
-		@include adaptiveValue("padding-block-start", 224, 160);
+		@include adaptiveValue("padding-block-start", 150, 40);
 		&.selected-work {
 			@include adaptiveValue("padding-block-end", 160, 80);
 		}
