@@ -8,11 +8,12 @@ export default function scriptOptimization() {
 		transformIndexHtml: {
 			order: "post",
 			handler(html: string) {
-				// Remove duplicate script tags
-				return html
-					.replace(/\s+crossorigin(=["'][^"']*["'])?/g, "")
-					.replace(/\s+type="module"/g, "")
-					.replace(/<script /g, "<script defer ");
+				if (process.argv.includes("--local")) {
+					return html
+						.replace(/\s+crossorigin(=["'][^"']*["'])?/g, "")
+						.replace(/\s+type="module"/g, "")
+						.replace(/<script /g, "<script defer ");
+				}
 			}
 		}
 	};

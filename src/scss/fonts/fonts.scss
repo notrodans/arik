@@ -3,8 +3,8 @@
 	font-family: icons;
 	font-display: swap;
 	src:
-		url("@fonts/Icons.woff2") format("woff2"),
-		url("@fonts/Icons.ttf") format("truetype");
+		url("/fonts/Icons.woff2") format("woff2"),
+		url("/fonts/Icons.ttf") format("truetype");
 	font-weight: 400;
 	font-style: normal;
 }
@@ -13,9 +13,9 @@
 @font-face {
 	font-family: "Satoshi";
 	src:
-		url("@fonts/Satoshi-Light.woff2") format("woff"),
-		url("@fonts/Satoshi-Light.woff") format("woff2"),
-		url("@fonts/Satoshi-Light.ttf") format("truetype");
+		url("/fonts/Satoshi-Light.woff2") format("woff"),
+		url("/fonts/Satoshi-Light.woff") format("woff2"),
+		url("/fonts/Satoshi-Light.ttf") format("truetype");
 	font-weight: 300;
 	font-display: swap;
 	font-style: normal;
@@ -23,9 +23,9 @@
 @font-face {
 	font-family: "Satoshi";
 	src:
-		url("@fonts/Satoshi-Regular.woff2") format("woff"),
-		url("@fonts/Satoshi-Regular.woff") format("woff2"),
-		url("@fonts/Satoshi-Regular.ttf") format("truetype");
+		url("/fonts/Satoshi-Regular.woff2") format("woff"),
+		url("/fonts/Satoshi-Regular.woff") format("woff2"),
+		url("/fonts/Satoshi-Regular.ttf") format("truetype");
 	font-weight: 400;
 	font-display: swap;
 	font-style: normal;
@@ -35,9 +35,9 @@
 @font-face {
 	font-family: "Chillax";
 	src:
-		url("@fonts/Chillax-Light.woff2") format("woff"),
-		url("@fonts/Chillax-Light.woff") format("woff2"),
-		url("@fonts/Chillax-Light.ttf") format("truetype");
+		url("/fonts/Chillax-Light.woff2") format("woff"),
+		url("/fonts/Chillax-Light.woff") format("woff2"),
+		url("/fonts/Chillax-Light.ttf") format("truetype");
 	font-weight: 300;
 	font-display: swap;
 	font-style: normal;
@@ -45,9 +45,9 @@
 @font-face {
 	font-family: "Chillax";
 	src:
-		url("@fonts/Chillax-Regular.woff2") format("woff"),
-		url("@fonts/Chillax-Regular.woff") format("woff2"),
-		url("@fonts/Chillax-Regular.ttf") format("truetype");
+		url("/fonts/Chillax-Regular.woff2") format("woff"),
+		url("/fonts/Chillax-Regular.woff") format("woff2"),
+		url("/fonts/Chillax-Regular.ttf") format("truetype");
 	font-weight: 400;
 	font-display: swap;
 	font-style: normal;
@@ -57,9 +57,9 @@
 @font-face {
 	font-family: "Gambetta";
 	src:
-		url("@fonts/Gambetta-LightItalic.woff2") format("woff"),
-		url("@fonts/Gambetta-LightItalic.woff") format("woff2"),
-		url("@fonts/Gambetta-LightItalic.ttf") format("truetype");
+		url("/fonts/Gambetta-LightItalic.woff2") format("woff"),
+		url("/fonts/Gambetta-LightItalic.woff") format("woff2"),
+		url("/fonts/Gambetta-LightItalic.ttf") format("truetype");
 	font-weight: 300;
 	font-display: swap;
 	font-style: italic;

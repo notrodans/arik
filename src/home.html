@@ -7,7 +7,7 @@
 			<include src="header.htm"></include>
 			<main class="page page--home">
 				<section class="page__hero hero hero--home">
-					<img class="hero__image ibg" src="@img/me.png" alt="Hero image" />
+					<img class="hero__image ibg" src="/img/me.png" alt="Hero image" />
 					<div class="hero__container">
 						<div class="hero__block block-hero block-hero--center">
 							<h1 class="block-hero__title">
@@ -33,29 +33,34 @@
 				<section class="page__logos logos">
 					<ul class="logos__container">
 						<li class="logos__column">
-							<img src="@img/logos/logo.svg" alt="Silverstone Corporation" />
+							<img src="/img/logos/logo.svg" alt="Silverstone Corporation" />
 						</li>
 						<li class="logos__column">
-							<img src="@img/logos/logo-1.svg" alt="Redwood Technologies" />
+							<img src="/img/logos/logo-1.svg" alt="Redwood Technologies" />
 						</li>
 						<li class="logos__column">
-							<img src="@img/logos/logo-2.svg" alt="ABC Company" />
+							<img src="/img/logos/logo-2.svg" alt="ABC Company" />
 						</li>
 						<li class="logos__column">
-							<img src="@img/logos/logo-3.svg" alt="Greenway Industries" />
+							<img src="/img/logos/logo-3.svg" alt="Greenway Industries" />
 						</li>
 						<li class="logos__column">
-							<img src="@img/logos/logo-4.svg" alt="Some logo" />
+							<img src="/img/logos/logo-4.svg" alt="Some logo" />
 						</li>
 						<li class="logos__column">
-							<img src="@img/logos/logo-5.svg" alt="Design Inc." />
+							<img src="/img/logos/logo-5.svg" alt="Design Inc." />
 						</li>
 					</ul>
 				</section>
 
-				<section id="services" class="page__services services">
+				<section data-watch-root id="services" class="page__services services">
 					<ul class="services__container">
-						<li class="services__item block-card block-card--text-grow">
+						<li
+							data-watch
+							data-watch-once
+							data-watch-threshold="0.5"
+							class="services__item block-card block-card--text-grow watcher-fade-out"
+						>
 							<h3 class="block-card__super-title super-title super-title--muted">01</h3>
 							<h2 class="block-card__title">Web design</h2>
 							<p class="block-card__text paragraph">
@@ -66,7 +71,12 @@
 								<span class="visibility-hidden">Link to service</span>
 							</a>
 						</li>
-						<li class="services__item block-card block-card--text-grow">
+						<li
+							data-watch
+							data-watch-once
+							data-watch-threshold="0.5"
+							class="services__item block-card block-card--text-grow watcher-fade-out"
+						>
 							<h3 class="block-card__super-title super-title super-title--muted">02</h3>
 							<h2 class="block-card__title">Development</h2>
 							<p class="block-card__text paragraph">
@@ -77,7 +87,12 @@
 								<span class="visibility-hidden">Link to service</span>
 							</a>
 						</li>
-						<li class="services__item block-card block-card--text-grow">
+						<li
+							data-watch
+							data-watch-once
+							data-watch-threshold="0.5"
+							class="services__item block-card block-card--text-grow watcher-fade-out"
+						>
 							<h3 class="block-card__super-title super-title super-title--muted">03</h3>
 							<h2 class="block-card__title">Content & seo</h2>
 							<p class="block-card__text paragraph">
@@ -91,7 +106,7 @@
 					</ul>
 				</section>
 
-				<section class="page__selected-work selected-work">
+				<section data-watch-root class="page__selected-work selected-work">
 					<div class="selected-work__container">
 						<div class="header-section">
 							<h2 class="header-section__title">Selected <span>Work</span></h2>
@@ -101,11 +116,15 @@
 							</a>
 						</div>
 						<div class="selected-work__body">
-							<div class="selected-work__item item-work-selected noise">
+							<div
+								data-watch
+								data-watch-once
+								class="selected-work__item item-work-selected noise watcher-translate"
+							>
 								<a data-hover-link href="#">
 									<img
 										class="item-work-selected__image ibg"
-										src="@img/selected-works/Image.png"
+										src="/img/selected-works/Image.png"
 										alt="Selected work 1"
 									/>
 								</a>
@@ -114,11 +133,15 @@
 									<a data-hover-link href="#" class="item-work-selected__category">WEBDESIGN</a>
 								</div>
 							</div>
-							<div class="selected-work__item item-work-selected noise">
+							<div
+								data-watch
+								data-watch-once
+								class="selected-work__item item-work-selected noise watcher-translate"
+							>
 								<a data-hover-link href="#">
 									<img
 										class="item-work-selected__image ibg"
-										src="@img/selected-works/Image-1.png"
+										src="/img/selected-works/Image-1.png"
 										alt="Selected work 1"
 									/>
 								</a>
@@ -127,11 +150,15 @@
 									<a data-hover-link href="#" class="item-work-selected__category">WEBDESIGN</a>
 								</div>
 							</div>
-							<div class="selected-work__item item-work-selected noise">
+							<div
+								data-watch
+								data-watch-once
+								class="selected-work__item item-work-selected noise watcher-translate"
+							>
 								<a data-hover-link href="#">
 									<img
 										class="item-work-selected__image ibg"
-										src="@img/selected-works/Image-2.png"
+										src="/img/selected-works/Image-2.png"
 										alt="Selected work 1"
 									/>
 								</a>
@@ -140,11 +167,15 @@
 									<a data-hover-link href="#" class="item-work-selected__category">WEBDESIGN</a>
 								</div>
 							</div>
-							<div class="selected-work__item item-work-selected noise">
+							<div
+								data-watch
+								data-watch-once
+								class="selected-work__item item-work-selected noise watcher-translate"
+							>
 								<a data-hover-link href="#">
 									<img
 										class="item-work-selected__image ibg"
-										src="@img/selected-works/Image-3.png"
+										src="/img/selected-works/Image-3.png"
 										alt="Selected work 1"
 									/>
 								</a>
@@ -157,9 +188,14 @@
 					</div>
 				</section>
 
-				<section class="page__process process">
+				<section data-watch-root class="page__process process">
 					<div class="process__container">
-						<div class="process__block block-hero block-hero--center">
+						<div
+							data-watch
+							data-watch-once
+							data-watch-threshold="0.5"
+							class="process__block block-hero block-hero--center watcher-fade-out"
+						>
 							<h3
 								class="block-hero__super-title super-title super-title--muted super-title--center"
 							>
@@ -183,7 +219,12 @@
 							</a>
 						</div>
 						<ul id="process-road" class="process__body">
-							<li class="process__item block-card">
+							<li
+								data-watch
+								data-watch-once
+								data-watch-threshold="0.5"
+								class="process__item block-card watcher-translate"
+							>
 								<div class="block-card__super-title super-title super-title--muted">
 									LOREM IPSUM
 								</div>
@@ -201,7 +242,12 @@
 								</ul>
 								<div class="block-card__badge label">1 WEEK</div>
 							</li>
-							<li class="process__item block-card">
+							<li
+								data-watch
+								data-watch-once
+								data-watch-threshold="0.5"
+								class="process__item block-card watcher-translate"
+							>
 								<div class="block-card__super-title super-title super-title--muted">
 									DO WE MATCH?
 								</div>
@@ -218,7 +264,12 @@
 								</ul>
 								<div class="block-card__badge label">2 HOURS</div>
 							</li>
-							<li class="process__item block-card">
+							<li
+								data-watch
+								data-watch-once
+								data-watch-threshold="0.5"
+								class="process__item block-card watcher-translate"
+							>
 								<div class="block-card__super-title super-title super-title--muted">SOME MAGIC</div>
 								<h2 class="block-card__title">WEB DESIGN</h2>
 								<p class="block-card__text paragraph">
@@ -233,7 +284,12 @@
 								</ul>
 								<div class="block-card__badge label">1 WEEK</div>
 							</li>
-							<li class="process__item block-card">
+							<li
+								data-watch
+								data-watch-once
+								data-watch-threshold="0.5"
+								class="process__item block-card watcher-translate"
+							>
 								<div class="block-card__super-title super-title super-title--muted">MORE MAGIC</div>
 								<h2 class="block-card__title">DEVELOPMENT</h2>
 								<p class="block-card__text paragraph">
@@ -249,7 +305,12 @@
 								</ul>
 								<div class="block-card__badge label">2 WEEKS</div>
 							</li>
-							<li class="process__item block-card">
+							<li
+								data-watch
+								data-watch-once
+								data-watch-threshold="0.5"
+								class="process__item block-card watcher-translate"
+							>
 								<div class="block-card__super-title super-title super-title--muted">
 									READY TO GO
 								</div>
@@ -272,7 +333,7 @@
 					</div>
 				</section>
 
-				<section class="page__testimonials testimonials">
+				<section data-watch-root class="page__testimonials testimonials">
 					<div class="testimonials__container">
 						<div class="testimonials__block block-hero block-hero--center">
 							<h2 class="block-hero__title block-hero__title--s">
@@ -285,8 +346,13 @@
 							</p>
 						</div>
 						<ul class="testimonials__body">
-							<li class="testimonials__item block-card">
-								<img class="block-card__image" src="@img/logos/logo-2.svg" alt="ABC Company" />
+							<li
+								data-watch
+								data-watch-once
+								data-watch-threshold="0.5"
+								class="testimonials__item block-card watcher-fade-out"
+							>
+								<img class="block-card__image" src="/img/logos/logo-2.svg" alt="ABC Company" />
 								<h2 class="block-card__title">
 									Amazing Results with Arik’s Premium Web Design Services.
 								</h2>
@@ -296,15 +362,20 @@
 									the entire process. I highly recommend his services.
 								</p>
 								<figure class="block-card__avatar">
-									<img src="@img/ceos/ceo-1.png" alt="JOHN SMITH" />
+									<img src="/img/ceos/ceo-1.png" alt="JOHN SMITH" />
 									<figcaption class="block-card__figcaption">
 										<span>JOHN SMITH</span>
 										<span>ABC Company</span>
 									</figcaption>
 								</figure>
 							</li>
-							<li class="testimonials__item block-card">
-								<img class="block-card__image" src="@img/logos/logo-5.svg" alt="Design Inc." />
+							<li
+								data-watch
+								data-watch-once
+								data-watch-threshold="0.5"
+								class="testimonials__item block-card watcher-fade-out"
+							>
+								<img class="block-card__image" src="/img/logos/logo-5.svg" alt="Design Inc." />
 								<h2 class="block-card__title">
 									Expert Webflow and SEO Services: Excellent Work, Great Results.
 								</h2>
@@ -315,17 +386,22 @@
 									the end result.
 								</p>
 								<figure class="block-card__avatar">
-									<img src="@img/ceos/ceo-4.png" alt="DAVID KIM" />
+									<img src="/img/ceos/ceo-4.png" alt="DAVID KIM" />
 									<figcaption class="block-card__figcaption">
 										<span>DAVID KIM</span>
 										<span>Design Inc.</span>
 									</figcaption>
 								</figure>
 							</li>
-							<li class="testimonials__item block-card">
+							<li
+								data-watch
+								data-watch-once
+								data-watch-threshold="0.5"
+								class="testimonials__item block-card watcher-fade-out"
+							>
 								<img
 									class="block-card__image"
-									src="@img/logos/logo-1.svg"
+									src="/img/logos/logo-1.svg"
 									alt="Redwood Technologies"
 								/>
 								<h2 class="block-card__title">
@@ -338,17 +414,22 @@
 									all your web development needs.
 								</p>
 								<figure class="block-card__avatar">
-									<img src="@img/ceos/ceo-2.png" alt="KAREN LEE" />
+									<img src="/img/ceos/ceo-2.png" alt="KAREN LEE" />
 									<figcaption class="block-card__figcaption">
 										<span>KAREN LEE</span>
 										<span>Redwood Technologies</span>
 									</figcaption>
 								</figure>
 							</li>
-							<li class="testimonials__item block-card">
+							<li
+								data-watch
+								data-watch-once
+								data-watch-threshold="0.5"
+								class="testimonials__item block-card watcher-fade-out"
+							>
 								<img
 									class="block-card__image"
-									src="@img/logos/logo-6.svg"
+									src="/img/logos/logo-6.svg"
 									alt="Silverstone Corporation"
 								/>
 								<h2 class="block-card__title">
@@ -361,17 +442,22 @@
 									anyone looking for a top-quality web designer.
 								</p>
 								<figure class="block-card__avatar">
-									<img src="@img/ceos/ceo-5.png" alt="ANDREW THOMPSON" />
+									<img src="/img/ceos/ceo-5.png" alt="ANDREW THOMPSON" />
 									<figcaption class="block-card__figcaption">
 										<span>ANDREW THOMPSON</span>
 										<span>Silverstone Corporation</span>
 									</figcaption>
 								</figure>
 							</li>
-							<li class="testimonials__item block-card">
+							<li
+								data-watch
+								data-watch-once
+								data-watch-threshold="0.5"
+								class="testimonials__item block-card watcher-fade-out"
+							>
 								<img
 									class="block-card__image"
-									src="@img/logos/logo-3.svg"
+									src="/img/logos/logo-3.svg"
 									alt="Greenway Industries"
 								/>
 								<h2 class="block-card__title">
@@ -383,17 +469,22 @@
 									excellent results. I highly recommend him for all your SEO needs.
 								</p>
 								<figure class="block-card__avatar">
-									<img src="@img/ceos/ceo-3.png" alt="EMILY DAVIS" />
+									<img src="/img/ceos/ceo-3.png" alt="EMILY DAVIS" />
 									<figcaption class="block-card__figcaption">
 										<span>EMILY DAVIS</span>
 										<span>Greenway Industries</span>
 									</figcaption>
 								</figure>
 							</li>
-							<li class="testimonials__item block-card">
+							<li
+								data-watch
+								data-watch-once
+								data-watch-threshold="0.5"
+								class="testimonials__item block-card watcher-fade-out"
+							>
 								<img
 									class="block-card__image"
-									src="@img/logos/logo.svg"
+									src="/img/logos/logo.svg"
 									alt="Silverstone Corporation"
 								/>
 								<h2 class="block-card__title">
@@ -406,7 +497,7 @@
 									your web development needs.
 								</p>
 								<figure class="block-card__avatar">
-									<img src="@img/ceos/ceo-6.png" alt="RYAN CHEN" />
+									<img src="/img/ceos/ceo-6.png" alt="RYAN CHEN" />
 									<figcaption class="block-card__figcaption">
 										<span>RYAN CHEN</span>
 										<span>Golden Gate Solution</span>
@@ -418,7 +509,7 @@
 				</section>
 
 				<section data-prlx-parent data-prlx-center="top" class="page__about-section about-section">
-					<img class="about-section__image ibg" src="@img/me.png" alt="About image" />
+					<img class="about-section__image ibg" src="/img/me.png" alt="About image" />
 					<div class="about-section__decorations decorations-about-section">
 						<div
 							data-prlx

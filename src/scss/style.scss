@@ -48,15 +48,28 @@ $responsiveType: 1;
 
 // @import "libs/tailwind";
 
+@keyframes fadein {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
 body {
-	// scrollbar-gutter: stable;
+	scrollbar-gutter: stable;
+
+	@media (scripting: enabled) {
+		.loaded & {
+			animation: fadein 0.5s ease-in-out;
+		}
+	}
+
 	.lock & {
 		overflow: hidden;
 		touch-action: none;
 		overscroll-behavior: none;
-	}
-	.loaded & {
-		opacity: 1;
 	}
 }
 
@@ -210,5 +223,33 @@ body {
 	}
 
 	&__selected-work {
+	}
+}
+
+@media (scripting: enabled) {
+	.watcher-fade-out {
+		opacity: 0;
+		visibility: hidden;
+		transition:
+			opacity 1s,
+			visibility 1s;
+
+		&._watcher-view {
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+
+	.watcher-translate {
+		transform: translateY(toRem(100));
+		opacity: 0;
+		transition:
+			transform 0.5s ease,
+			opacity 0.5s ease;
+
+		&._watcher-view {
+			transform: translateY(0);
+			opacity: 1;
+		}
 	}
 }
